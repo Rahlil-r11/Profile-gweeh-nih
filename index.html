@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Rahlil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-
     * {
       margin: 0;
       padding: 0;
@@ -16,28 +15,38 @@
     }
 
     body {
-      background: linear-gradient(to bottom right, #93c5fd, #e0f2fe);
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
       color: #1e293b;
-      line-height: 1.6;
+      transition: background 0.6s, color 0.6s;
+    }
+
+    .dark-mode {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f8fafc;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
-      padding: 30px;
+      padding: 40px 20px;
     }
 
     header {
       text-align: center;
-      background-color: #3b82f6;
+      background: linear-gradient(to right, #3b82f6, #06b6d4);
       color: white;
-      padding: 50px 20px 30px;
-      border-radius: 0 0 30px 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 60px 20px 40px;
+      border-radius: 0 0 50px 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: background 0.6s;
+    }
+
+    .dark-mode header {
+      background: linear-gradient(to right, #1e3a8a, #0e7490);
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin-bottom: 10px;
     }
 
@@ -46,59 +55,75 @@
     }
 
     .profile-pic {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      margin: -80px auto 20px;
-      border: 5px solid white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      margin: -90px auto 30px;
+      border: 6px solid white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
       display: block;
     }
 
     section {
-      margin: 40px 0;
+      margin: 50px 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+      font-size: 2rem;
+      margin-bottom: 20px;
       color: #2563eb;
-      border-bottom: 2px solid #dbeafe;
-      padding-bottom: 5px;
+      border-bottom: 3px solid #1e40af;
+      padding-bottom: 8px;
     }
 
-    .about p,
-    .goals p,
-    .contact p {
-      font-size: 1.05rem;
+    .dark-mode h2 {
+      color: #60a5fa;
+      border-bottom-color: #3b82f6;
     }
 
     .info-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
+      gap: 25px;
+      margin-top: 25px;
     }
 
     .info-box {
       flex: 1;
-      min-width: 200px;
-      background-color: #f0f9ff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      min-width: 250px;
+      background-color: #f1f5f9;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+
+    .dark-mode .info-box {
+      background-color: #1e293b;
+      color: #e2e8f0;
     }
 
     .info-box:hover {
-      transform: translateY(-5px);
+      transform: translateY(-7px);
     }
 
     .info-box h3 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #0ea5e9;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .dark-mode .info-box h3 {
+      color: #38bdf8;
     }
 
     ul {
@@ -107,47 +132,54 @@
     }
 
     ul li::before {
-      content: "•";
+      content: "\2022";
       color: #3b82f6;
-      margin-right: 8px;
+      margin-right: 10px;
+    }
+
+    a {
+      color: #0ea5e9;
+      text-decoration: none;
+    }
+
+    .dark-mode a {
+      color: #93c5fd;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
-      padding: 30px 10px;
-      font-size: 0.9rem;
+      padding: 40px 10px;
+      font-size: 0.95rem;
       color: #64748b;
-      background-color: #f1f5f9;
+      background-color: #f8fafc;
       border-top: 2px solid #e2e8f0;
-      margin-top: 40px;
+      margin-top: 60px;
+      transition: background 0.6s;
     }
 
-    /* RESPONSIVE */
-    @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    .dark-mode footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      border-top-color: #1e293b;
+    }
 
-      header p {
-        font-size: 1rem;
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2.4rem;
       }
 
       .profile-pic {
-        width: 120px;
-        height: 120px;
-        margin-top: -60px;
+        width: 130px;
+        height: 130px;
+        margin-top: -70px;
       }
 
       h2 {
-        font-size: 1.5rem;
-      }
-
-      .info-box {
-        min-width: 100%;
-      }
-
-      .container {
-        padding: 20px;
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -159,14 +191,11 @@
       <p>Game Developer Pemula & Pembelajar Dunia IT</p>
     </header>
 
-    <img src="WhatsApp Image 2025-07-06 at 20.02.32_85aabf0f.jpg" alt="Foto Rahlil" class="profile-pic" />
+    <img src="image copy.png" alt="Foto Rahlil" class="profile-pic" />
 
     <section class="about">
       <h2>Tentang Saya</h2>
-      <p>
-        Halo! Saya Rahlil, seorang yang sedang belajar dan mendalami dunia teknologi, khususnya di bidang pengembangan game. Saya senang mengeksplorasi ide-ide unik dan membuat game yang bukan hanya seru tapi juga membuat orang berpikir. 
-        Saat ini, saya sedang membuat game puzzle psikologi di Roblox dengan alur mimpi yang misterius dan penuh teka-teki!
-      </p>
+      <p>Halo! Saya Rahlil, sedang mendalami dunia teknologi dan pengembangan game. Saya suka menciptakan game dengan elemen cerita dan teka-teki yang memicu rasa ingin tahu. Saat ini saya membuat game puzzle psikologi di Roblox yang bertema mimpi misterius.</p>
     </section>
 
     <section class="hobbies">
@@ -174,43 +203,73 @@
       <div class="info-grid">
         <div class="info-box">
           <h3>💻 Ngoding</h3>
-          <p>Membuat program kecil, skrip, dan eksperimen dengan HTML, CSS, JS, dan Lua (Roblox).</p>
+          <p>Eksperimen dengan HTML, CSS, JavaScript, dan Lua (Roblox).</p>
         </div>
         <div class="info-box">
           <h3>🎮 Game Development</h3>
-          <p>Menciptakan dunia baru, level design, dan menciptakan cerita dalam game.</p>
+          <p>Merancang level, membangun narasi, dan menciptakan pengalaman bermain.</p>
         </div>
         <div class="info-box">
           <h3>🎨 Desain</h3>
-          <p>Suka mendesain antarmuka dan layout UI yang estetik dan simpel.</p>
+          <p>Merancang UI yang bersih, estetis, dan intuitif.</p>
         </div>
       </div>
     </section>
 
     <section class="goals">
       <h2>Proyek & Tujuan</h2>
-      <p>Saya memiliki beberapa proyek yang sedang dikerjakan, terutama:</p>
+      <p>Beberapa proyek yang sedang saya kerjakan:</p>
       <ul>
         <li>👁️ Game Roblox "Terperangkap dalam Mimpi"</li>
-        <li>🎯 Belajar JavaScript dan Python</li>
-        <li>🧠 Membuat level-level dengan teka-teki psikologi yang unik</li>
-        <li>📚 Menyelesaikan kursus-kursus IT secara mandiri</li>
+        <li>🎯 Belajar JavaScript dan Python lebih dalam</li>
+        <li>🧠 Mendesain level teka-teki psikologis</li>
+        <li>📚 Menyelesaikan kursus online IT</li>
       </ul>
     </section>
 
     <section class="contact">
       <h2>Kontak Saya</h2>
-      <p>Ingin ngobrol atau kolaborasi? Silakan hubungi saya melalui:</p>
+      <p>Tertarik untuk ngobrol atau kerja bareng?</p>
       <ul>
         <li>Email: <a href="mailto:lilharv67@gmail.com">lilharv67@gmail.com</a></li>
-        <li>Instagram: <a href="https://instagram.com/murid_nya_guru">@murid_nya_guru</a></li>
-        <li>WhatsApp: <a href="https://wa.me/6285714000682">my nomber</a></li>
+        <li>Instagram: <a href="https://instagram.com/murid_nya_guru" target="_blank">@murid_nya_guru</a></li>
+        <li>WhatsApp: <a href="https://wa.me/6285714000682" target="_blank">Hubungi Saya</a></li>
       </ul>
     </section>
 
     <footer>
-      &copy; 2025 Rahlil. Dibuat dengan semangat dan kopi ☕
+      &copy; 2025 Rahlil. Dibuat penuh semangat & kopi ☕
     </footer>
   </div>
+
+  <script>
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '🌙 Dark Mode';
+    Object.assign(toggleBtn.style, {
+      position: 'fixed', top: '20px', right: '20px', padding: '10px 16px',
+      backgroundColor: '#1e3a8a', color: '#fff', border: 'none', borderRadius: '8px',
+      cursor: 'pointer', zIndex: 1000, fontSize: '14px'
+    });
+    document.body.appendChild(toggleBtn);
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+
+    const sections = document.querySelectorAll('section');
+    const reveal = () => {
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        const threshold = window.innerHeight / 1.2;
+        if (top < threshold) {
+          section.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Rahlil</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -149,6 +150,7 @@
     a:hover {
       text-decoration: underline;
     }
+    
 
     footer {
       text-align: center;
@@ -166,6 +168,81 @@
       color: #94a3b8;
       border-top-color: #1e293b;
     }
+    /* ==== DARK MODE FULL TRANSFORM ==== */
+.dark-mode * {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Header berubah bentuk */
+.dark-mode header {
+  border-radius: 20px;
+  padding: 40px 30px;
+  background: #0f172a;
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+  position: relative;
+}
+
+.dark-mode header h1::after {
+  content: "|";
+  animation: blink 1s infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+.dark-mode .profile-pic {
+  border-radius: 0%;
+  border: 4px dashed #38bdf8;
+  filter: drop-shadow(0 0 8px #38bdf8);
+  transition: all 0.4s ease-in-out;
+}
+
+/* Info box satu kolom di dark mode */
+.dark-mode .info-grid {
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dark-mode .info-box {
+  border: 1px dashed #38bdf8;
+  background-color: rgba(30, 41, 59, 0.8);
+  box-shadow: inset 0 0 10px rgba(56, 189, 248, 0.3);
+  text-align: center;
+  transform: skewX(-1deg);
+}
+
+.dark-mode h2 {
+  text-align: center;
+  border-bottom: none;
+  border-top: 3px solid #38bdf8;
+  padding-top: 10px;
+}
+
+/* Footer berbeda total */
+.dark-mode footer {
+  background: #0f172a;
+  border-top: none;
+  border-bottom: 2px dashed #38bdf8;
+  padding: 60px 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Tautan lebih besar dan mencolok */
+.dark-mode a {
+  font-size: 1.05rem;
+  color: #38bdf8;
+}
+
+.dark-mode a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 4px #38bdf8;
+}
+
 
     @media screen and (max-width: 768px) {
       header h1 {
@@ -232,13 +309,14 @@
       <p>Tertarik untuk ngobrol atau kerja bareng?</p>
       <ul>
         <li>Email: <a href="mailto:lilharv67@gmail.com">lilharv67@gmail.com</a></li>
-        <li>Instagram: <a href="https://instagram.com/murid_nya_guru" target="_blank">@murid_nya_guru</a></li>
+        <li>Instagram: <a href="https://instagram.com/murid_nya_guru" target="_blan">@murid_nya_guru</a></li>
         <li>WhatsApp: <a href="https://wa.me/6285714000682" target="_blank">Hubungi Saya</a></li>
+        <li>Mau Bikin Website atau belajar Bareng:  <a href="https://imamnafi.com/" target="_blank">Klik Saya</a></li>
       </ul>
     </section>
 
     <footer>
-      &copy; 2025 Rahlil. Dibuat penuh semangat & kopi ☕
+      &copy; 2025 Rahlil. Dibuat penuh semangat & Mlbb 
     </footer>
   </div>
 
